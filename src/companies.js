@@ -1,16 +1,4 @@
 module.exports = {
-   "company1": {
-      "name": "Appstronauts",
-      "description": "",
-      "services": [
-        "Strategy",
-        "Mobile Development",
-        "Interactive",
-        "Web Development"
-      ],
-      "size": "1-10",
-      "url": "http://appstronauts.com/"
-   },
    "company2": {
       "name": "Artefact",
       "url": "https://www.artefactgroup.com/",
@@ -207,15 +195,6 @@ module.exports = {
         "Interactive",
         "Mobile Development",
         "Web Development"
-      ]
-   },
-   "company21": {
-      "name": "frog",
-      "url": "https://www.frogdesign.com/",
-      "size": "51-200",
-      "services": [
-        "Strategy"
-      ]
    },
    "company22": {
       "name": "General UI",
@@ -326,12 +305,6 @@ module.exports = {
       "services": [
         "Advertising"
       ]
-   },
-   "company33": {
-      "name": "Imagicorps",
-      "url": "https://www.imagicorps.com",
-      "size": "11-50",
-      "services": ["exhibition design", "Branding"]
    },
    "company34": {
       "name": "Intentional Futures",
@@ -520,22 +493,6 @@ module.exports = {
       "url": "http://www.publicisseattle.com/",
       "size": "1001-5000",
       "services": [
-        "Digital Product Design",
-        "Interactive",
-        "Mobile Development",
-        "Web Development"
-      ]
-   },
-   "company56": {
-      "name": "Push Design",
-      "url": "http://pushdesign.net/",
-      "size": "1-10",
-      "services": [
-        "Digital Product Design",
-        "Interactive",
-        "Mobile Development",
-        "Web Development"
-      ]
    },
    "company57": {
       "name": "Ratio",
