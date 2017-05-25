@@ -5,8 +5,11 @@ class Company extends React.Component {
     const details = this.props.details;
 
     return(
-      <li className="company" data-is-active={this.props.active} onClick={() => this.props.showDetails(this.props.details) }>
-        {details.name}
+      <li className="company"
+        data-is-active={this.props.active}>
+          <div className="company-name">{details.name}</div>
+          <div className="company-name"><a href={details.url}>{details.url}</a></div>
+          <div className="company-name"><a href={`http://twitter.com/${details.twitter}`}>{details.twitter}</a></div>
       </li>
     )
   }
