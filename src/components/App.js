@@ -81,7 +81,7 @@ class App extends React.Component {
       <div className={`about-show-${this.state.showAbout}`}>
         <nav className="navigation">
           <ul>
-            <li className="navigation-item"><strong>Seattle Design List</strong></li>
+            <li className="navigation-item"><strong>Seattle Design</strong></li>
             <li className="navigation-item"><a href="#" onClick={this.toggleAbout}>What is this?</a></li>
           </ul>
         </nav>
