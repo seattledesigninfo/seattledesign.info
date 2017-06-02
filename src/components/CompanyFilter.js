@@ -14,15 +14,14 @@ class CompanyFilter extends React.Component {
         "Mobile Development": true,
         "Print": true,
         "Strategy": true,
-        "Video": true,
-        "Web Development": true,
+        "Video": true
       },
       sizes: {
-        "1-10": true,
-        "11-50": true,
-        "51-200": true,
-        "201-500": true,
-        "501-1000": true,
+        "1-10": true, // Micro
+        "11-50": true, // Small
+        "51-200": true, // Medium
+        "201-500": true, // Large
+        "501-1000": true, // Massive
         "1001-5000": true,
         "5001-10000": true
       }
@@ -54,32 +53,41 @@ class CompanyFilter extends React.Component {
     return(
       <div>
         <form onChange={this.handleChange}>
+          <ul>
           {
             Object
               .keys(this.state.focuses)
               .map(focus => {
                 return (
-                  <label className={`checked-${this.state.focuses[focus]}`} key={focus}>
-                    <input name="focuses" type="checkbox" defaultChecked={this.state.focuses[focus]} value={focus} />
-                    {focus}
-                  </label>
+                  <li key={focus}>
+                    <label className={`checked-${this.state.focuses[focus]}`} key={focus}>
+                      <input name="focuses" type="checkbox" defaultChecked={this.state.focuses[focus]} value={focus} />
+                      {focus}
+                    </label>
+                  </li>
                 )
             })
           }
+          </ul>
 
           <h3>Size</h3>
 
+          <ul>
           {
             Object
               .keys(this.state.sizes)
               .map(size => {
               return (
-                <label className={`checked-${this.state.sizes[size]}`} key={size}> {size}
-                  <input name="sizes" type="checkbox" defaultChecked={this.state.sizes[size]} value={size} />
-                </label>
+                <li key={size}>
+                  <label className={`checked-${this.state.sizes[size]}`} key={size}>
+                    <input name="sizes" type="checkbox" defaultChecked={this.state.sizes[size]} value={size} />
+                    {size}
+                  </label>
+                </li>
               )
             })
           }
+          </ul>
         </form>
       </div>
     )

@@ -1,0 +1,134 @@
+* {
+  font-family: "Roboto Mono", sans-serif;
+}
+
+body {
+  font-size: 18px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  text-indent: 2em;
+}
+
+a {
+  color: #000;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.company {
+  overflow: hidden;
+  padding: 1em 0;
+}
+
+.company > div {
+  float: left;
+  width: 33%;
+}
+
+.company-filter {
+  font-size: .85rem;
+  position: fixed;
+  width: 250px;
+}
+
+.companies {
+  margin-left: 250px;
+}
+
+.container {
+  margin: 5em auto;
+  max-width: 90vw;
+}
+
+.navigation {
+  background: #fff;
+  border-bottom: solid 2px #000;
+  font-size: 1.125em;
+  height: 4rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navigation-item {
+  display: inline-block;
+  padding: 1em;
+}
+
+.header {
+  font-weight: 700;
+}
+
+.service {
+  background: blue;
+  border-radius: 2px;
+  color: white;
+  display: inline-block;
+  font-size: .85em;
+  margin: 0 2px 0 0;
+  padding: 1px 2px;
+}
+
+.about {
+  background: #000;
+  bottom: 0;
+  color: #fff;
+  display: none;
+  font-size: 2rem;
+  left: 0;
+  overflow: auto;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 4rem;
+}
+
+.inverse-anchor {
+  color: #fff;
+}
+
+.about-show-true .about {
+  display: block;
+}
+
+.about-show-true {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.twitter-handle {
+  font-size: .85em;
+}
+
+.checked-false {
+  color: #999;
+}
+
+.close-about {
+  background: #fff;
+  color: #000;
+  display: block;
+  float: right;
+  line-height: 1;
+  margin: 0 0 0 1rem;
+  padding: .5rem 1rem;
+  right: 1em;
+  text-decoration: none;
+}
+
+.about-container {
+  overflow: hidden;
+}
