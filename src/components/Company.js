@@ -7,8 +7,11 @@ class Company extends React.Component {
     return(
       <li className="company" data-is-active={this.props.active}>
         <div className="company-name">
-          <a href={details.url}>{details.name}</a><br/>
-          <span className="twitter-handle"><a href={`http://twitter.com/${details.twitter}`}>{details.twitter}</a></span></div>
+          <a href={details.url} target="_blank">{details.name}</a><br/>
+          <span className="twitter-handle">
+            <a href={`http://twitter.com/${details.twitter}`} target="_blank">{details.twitter}</a>
+          </span>
+        </div>
         <div className="company-focuses">{
           details.services.map((service) => {
             return(<span className={`service ${service}`}> {service} </span>)
