@@ -16,7 +16,17 @@ p + p {
 }
 
 a {
-  color: #000;
+  background: transparent linear-gradient(to bottom, transparent 93%, rgba(150, 150, 150, .9) 93%);
+  background-position: 0 1.25em;
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  transition: background 200ms ease-in;
+}
+
+a:hover {
+  background: transparent linear-gradient(to bottom, transparent 93%, rgba(0, 0, 255,.9) 93%);
+  background-position: 0 1.25em;
 }
 
 ul {
@@ -58,13 +68,14 @@ label {
 }
 
 .navigation {
-  background: #fff;
-  border-bottom: solid 2px #000;
+  background: #000;
+  color: #fff;
   font-size: 1.125em;
   height: 4rem;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9;
 }
 
 .navigation-item {
@@ -131,6 +142,10 @@ label {
   padding: .5rem 1rem;
   right: 1em;
   text-decoration: none;
+
+  a {
+    background: none;
+  }
 }
 
 .about-container {
