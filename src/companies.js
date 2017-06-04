@@ -120,7 +120,7 @@ module.exports = [
     "name": "Deloitte Digital",
     "description": "A Creative Digital Consultancy that provides full-spectrum technology services.",
     "url": "http://www.deloittedigital.com/us/",
-    "size": "5001-10000",
+    "size": "501+",
     "services": [
       "Strategy",
       "Branding",
@@ -579,7 +579,7 @@ module.exports = [
     "name": "Possible",
     "description": "POSSIBLE is a creative agency that cares about results. Our mission is simple: create world-class work that works.",
     "url": "https://www.possible.com/",
-    "size": "1001-5000",
+    "size": "501+",
     "services": [
       "Advertising"
     ],
@@ -601,7 +601,7 @@ module.exports = [
     "name": "Publicis",
     "description": "Home of adventurous thinking and ideas.",
     "url": "http://www.publicisseattle.com/",
-    "size": "1001-5000",
+    "size": "501+",
     "services": [
       "Advertising",
     ],

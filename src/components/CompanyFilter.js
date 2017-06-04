@@ -21,9 +21,7 @@ class CompanyFilter extends React.Component {
         "11-50": true, // Small
         "51-200": true, // Medium
         "201-500": true, // Large
-        "501-1000": true, // Massive
-        "1001-5000": true,
-        "5001-10000": true
+        "501+": true // Massive
       }
     }
 
