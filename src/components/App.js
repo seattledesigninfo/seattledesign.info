@@ -83,6 +83,7 @@ class App extends React.Component {
           <ul>
             <li className="navigation-item"><strong>Seattle Design</strong></li>
             <li className="navigation-item"><a href="#" onClick={this.toggleAbout}>What is this?</a></li>
+            <li className="navigation-item"><a href="mailto:info@mail.seattledesign.info?subject=Add my company to the Seattle Design list">Add your company</a></li>
           </ul>
         </nav>
         <div className="container">
