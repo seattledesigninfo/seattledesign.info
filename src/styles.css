@@ -142,10 +142,10 @@ label {
   padding: .5rem 1rem;
   right: 1em;
   text-decoration: none;
+}
 
-  a {
-    background: none;
-  }
+.close-about a {
+  background: none;
 }
 
 .about-container {
