@@ -653,12 +653,14 @@ module.exports = [
   },
   {
     "name": "Shore",
+    "description": "A full-service design studio",
     "url": "https://madebyshore.com/",
     "size": "1-10",
     "services": [
       "Interactive",
       "Mobile Development"
-    ]
+    ],
+    "twitter": "@madebyshore"
   },
   {
     "name": "Smashing Ideas",
@@ -922,5 +924,28 @@ module.exports = [
       "Mobile Development"
     ],
     "twitter": "@Zenwerks"
+  },
+  {
+    "name": "Karass Creative",
+    "description": "Karass Creative is a Seattle based creative agency that invents, inspires, and re-imagines brands. We create unique interactive experiences, woven together by deliberate design, true technology, and artful animation",
+    "url": "http://karasscreative.com",
+    "size": "1-10",
+    "services": [
+      "Branding",
+      "Exhibition",
+      "Interactive",
+      "Strategy"
+    ],
+    "twitter": "@karasscreative"
+  },
+  {
+    "name": "Photo Factory",
+    "description": "Photon Factory is a Seattle-based studio that uses video, design, and community organizing to build brands and shape culture.",
+    "url": "http://www.photonfactory.org/",
+    "size": "",
+    "services": [
+      "Branding",
+      "Video"
+    ]
   }
 ];
