@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles.css';
-import Companies from '../companies';
+
+import { load } from '../spreadsheet';
 
 import CompanyFilter from './CompanyFilter';
 import Company from './Company';
@@ -23,16 +24,24 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    load(this.onLoad.bind(this));
     document.addEventListener('keydown', this.handleKeyPress);
-
-    this.setState({
-      companies: Companies,
-      displayCompanies: Companies
-    });
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  onLoad(data, error) {
+    if (data) {
+      this.setState({
+        ...data
+      });
+    } else {
+      this.setState({
+        error: error
+      });
+    }
   }
 
   handleKeyPress(e) {
