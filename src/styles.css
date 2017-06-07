@@ -43,13 +43,13 @@ label {
 }
 
 .company {
+  display: flex;
   overflow: hidden;
   padding: 1em 0;
 }
 
 .company > div {
-  float: left;
-  width: 33%;
+  flex: 1;
 }
 
 .company-filter {

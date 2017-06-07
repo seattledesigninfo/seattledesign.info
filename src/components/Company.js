@@ -5,7 +5,7 @@ class Company extends React.Component {
     const details = this.props.details;
 
     return(
-      <li className="company" data-is-active={this.props.active}>
+      <div className="company" data-is-active={this.props.active}>
         <div className="company-name">
           <a href={details.url} target="_blank">{details.name}</a><br/>
           <span className="twitter-handle">
@@ -13,12 +13,12 @@ class Company extends React.Component {
           </span>
         </div>
         <div className="company-focuses">{
-          details.services.map((service) => {
-            return(<span className={`service ${service}`}> {service} </span>)
+          details.services.map((service, index) => {
+            return(<span key={index} onClick={this.filterExclusive} className={`service ${service}`}> {service} </span>)
           })
         }</div>
         <div className="company-size">{details.size}</div>
-      </li>
+      </div>
     )
   }
 }

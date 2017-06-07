@@ -86,12 +86,12 @@ class App extends React.Component {
             <CompanyFilter focuses={this.state.focuses} filterCompanies={this.filterCompanies} />
           </section>
           <section className="column companies">
-            <ul className="list-of-companies">
-              <li className="company header">
+            <div className="list-of-companies">
+              <div className="company header">
                 <div className="company-name">Name</div>
                 <div className="company-name">Focuses</div>
                 <div className="company-size">Size</div>
-              </li>
+              </div>
 
               {
                 this.state.displayCompanies
@@ -104,7 +104,7 @@ class App extends React.Component {
                       )
                   })
               }
-            </ul>
+            </div>
           </section>
         </div>
         <About toggleAbout={this.toggleAbout} />
