@@ -70,6 +70,7 @@ label {
 .navigation {
   background: #000;
   color: #fff;
+  display: flex;
   font-size: 1.125em;
   height: 4rem;
   position: fixed;
@@ -79,8 +80,7 @@ label {
 }
 
 .navigation-item {
-  display: inline-block;
-  padding: 1em;
+  margin: auto 1em;
 }
 
 .header {

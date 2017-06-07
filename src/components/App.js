@@ -5,6 +5,7 @@ import Companies from '../companies';
 import CompanyFilter from './CompanyFilter';
 import Company from './Company';
 import About from './About';
+import Navigation from './Navigation';
 
 class App extends React.Component {
   constructor() {
@@ -79,13 +80,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={`about-show-${this.state.showAbout}`}>
-        <nav className="navigation">
-          <ul>
-            <li className="navigation-item"><strong>Seattle Design</strong></li>
-            <li className="navigation-item"><a href="#" onClick={this.toggleAbout}>What is this?</a></li>
-            <li className="navigation-item"><a href="mailto:info@mail.seattledesign.info?subject=Add my company to the Seattle Design list">Add your company</a></li>
-          </ul>
-        </nav>
+        <Navigation toggleAbout={this.toggleAbout} />
         <div className="container">
           <section className="column company-filter">
             <CompanyFilter focuses={this.state.focuses} filterCompanies={this.filterCompanies} />
