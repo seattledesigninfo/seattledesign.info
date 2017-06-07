@@ -40,16 +40,17 @@ li {
 
 label {
   cursor: pointer;
+  transition: color 150ms ease-in-out;
 }
 
 .company {
   display: flex;
   overflow: hidden;
-  padding: 1em 0;
 }
 
 .company > div {
   flex: 1;
+  padding: 1em;
 }
 
 .company-filter {
