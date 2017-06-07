@@ -5,7 +5,7 @@ class Company extends React.Component {
     const details = this.props.details;
 
     return(
-      <div className="company" data-is-active={this.props.active}>
+      <div className="company">
         <div className="company-name">
           <a href={details.url} target="_blank">{details.name}</a><br/>
           <span className="twitter-handle">

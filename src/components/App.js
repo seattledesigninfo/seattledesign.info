@@ -18,7 +18,6 @@ class App extends React.Component {
     this.state = {
       companies: [],
       displayCompanies: [],
-      activeCompany: null,
       showAbout: false,
     }
   }
@@ -98,7 +97,6 @@ class App extends React.Component {
                   .map((company, index) => {
                     return(
                       <Company
-                        active={this.state.activeCompany === company.name}
                         key={index}
                         details={company} />
                       )
