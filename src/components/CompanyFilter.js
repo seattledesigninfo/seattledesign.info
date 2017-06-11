@@ -6,15 +6,16 @@ class CompanyFilter extends React.Component {
 
     this.state = {
       focuses: {
-        "Advertising": true,
-        "Branding": true,
-        "Digital Product Design": true,
-        "Interactive": true,
-        "Exhibition Design": true,
-        "Mobile Development": true,
-        "Print": true,
-        "Strategy": true,
-        "Video": true
+        "All": true,
+        "Advertising": false,
+        "Branding": false,
+        "Digital Product Design": false,
+        "Interactive": false,
+        "Exhibition Design": false,
+        "Mobile Development": false,
+        "Print": false,
+        "Strategy": false,
+        "Video": false
       },
       sizes: {
         "1-10": true, // Micro
@@ -28,6 +29,16 @@ class CompanyFilter extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const focuses = {...nextProps.focuses};
+
+    if (JSON.stringify(focuses) === JSON.stringify(this.props.focuses)) {
+      return false;
+    }
+
+    this.setState({ focuses });
+  }
+
   handleChange(event) {
     const name = event.target.name;
     const changedState = {...this.state};
@@ -37,7 +48,10 @@ class CompanyFilter extends React.Component {
 
       if (event.target.value === "All") {
         Object.keys(changedState[name])
-          .map(value => changedState[name][value] = true);
+          .map(value => changedState[name][value] = false);
+        changedState[name]["All"] = true;
+      } else {
+        changedState[name]["All"] = false;
       }
     } else {
       changedState[name][event.target.value] = false;
@@ -55,12 +69,17 @@ class CompanyFilter extends React.Component {
           {
             Object
               .keys(this.state.focuses)
-              .map(focus => {
+              .map((focus, index) => {
                 return (
                   <li key={focus}>
-                    <label className={`checked-${this.state.focuses[focus]}`} key={focus}>
-                      <input name="focuses" type="checkbox" defaultChecked={this.state.focuses[focus]} value={focus} />
-                      {focus}
+                    <div className="checkbox" data-id={this.state.focuses[focus]}>
+                      <div className="checkbox--checkbox">
+                        <input name="focuses" type="checkbox" id={`focus-${index}`} checked={this.state.focuses[focus]} readOnly value={focus} />
+                        <label htmlFor={`focus-${index}`} key={focus}></label>
+                      </div>
+                    </div>
+                    <label htmlFor={`focus-${index}`} className={`checked-${this.state.focuses[focus]}`} key={focus}>
+                      <span className={`company-service ${focus}`}>{focus}</span>
                     </label>
                   </li>
                 )

@@ -1,6 +1,16 @@
 import React from 'react';
 
 class Company extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.filterExclusive = this.filterExclusive.bind(this);
+  }
+
+  filterExclusive(service) {
+    this.props.filterExclusive(service);
+  }
+
   render() {
     const details = this.props.details;
 
@@ -14,7 +24,7 @@ class Company extends React.Component {
         </div>
         <div className="company-focuses">{
           details.services.map((service, index) => {
-            return(<span key={index} onClick={this.filterExclusive} className={`service ${service}`}> {service} </span>)
+            return(<span key={index} onClick={() => this.filterExclusive(service)} className={`company-service ${service}`}> {service} </span>)
           })
         }</div>
         <div className="company-size">{details.size}</div>
