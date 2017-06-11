@@ -15,7 +15,6 @@ class App extends React.Component {
     this.filterCompanies = this.filterCompanies.bind(this);
     this.toggleAbout = this.toggleAbout.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.filterExclusive = this.filterExclusive.bind(this);
 
     this.state = {
       companies: [],
@@ -116,20 +115,6 @@ class App extends React.Component {
     });
   }
 
-  filterExclusive(service) {
-    const { focuses, sizes } = {...this.state};
-
-    Object.keys(focuses).map((focus, index) => {
-      if (focus === service) {
-        return focuses[focus] = true;
-      } else {
-        return focuses[focus] = false;
-      }
-    });
-
-    this.filterCompanies({ focuses, sizes });
-  }
-
   render() {
     return (
       <div className={`about-show-${this.state.showAbout}`}>
@@ -156,7 +141,6 @@ class App extends React.Component {
                       <Company
                         key={index}
                         details={company}
-                        filterExclusive={this.filterExclusive}
                         focuses={this.state.focuses} />
                       )
                   })

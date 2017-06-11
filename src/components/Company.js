@@ -5,12 +5,7 @@ class Company extends React.Component {
   constructor(props) {
     super(props);
 
-    this.filterExclusive = this.filterExclusive.bind(this);
     this.isSelected = this.isSelected.bind(this);
-  }
-
-  filterExclusive(service) {
-    this.props.filterExclusive(service);
   }
 
   isSelected(service) {
@@ -32,7 +27,9 @@ class Company extends React.Component {
         </div>
         <div className="company--cell company-focuses">{
           details.services.map((service, index) => {
-            return(<span key={index} onClick={() => this.filterExclusive(service)} className={`company-service ${this.isSelected(service)} ${slugify(service)}`}> {service} </span>)
+            return(
+              <span key={index} className={`company-service ${this.isSelected(service)} ${slugify(service)}`}> {service} </span>
+            )
           })
         }</div>
         <div className="company--cell company-size">{details.size}</div>
