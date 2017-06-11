@@ -1,0 +1,77 @@
+.company-filter {
+  font-size: .85rem;
+  position: absolute;
+  width: 300px;
+}
+
+.close-about {
+  background: #fff;
+  color: #000;
+  display: block;
+  float: right;
+  line-height: 1;
+  margin: 0 0 0 1rem;
+  padding: .5rem 1rem;
+  right: 1em;
+  text-decoration: none;
+}
+
+.close-about a {
+  background: none;
+}
+
+.about-container {
+  overflow: hidden;
+}
+
+.checkbox {
+  display: inline-block;
+}
+
+.checkbox--checkbox {
+  background: #ccc;
+  border-radius: 2px;
+  display: inline-block;
+  height: 18px;
+  margin: 0 7px 0 0;
+  position: relative;
+  width: 18px;
+}
+
+input[type="checkbox"] {
+  visibility: hidden;
+}
+
+
+.checkbox--checkbox label {
+  background: white;
+  bottom: 2px;
+  left: 2px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
+.checkbox--checkbox label:after {
+  border: solid 2px black;
+  border-right: 0;
+  border-top: 0;
+  bottom: 6px;
+  content: '';
+  left: 3px;
+  opacity: 0;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  transform: rotate(-45deg);
+  transition: opacity 150ms;
+}
+
+.checkbox--checkbox input[type='checkbox']:checked + label:after {
+  opacity: 1;
+}
+
+.checked-false.company-service,
+.checked-false .company-service {
+  background: #ccc;
+}

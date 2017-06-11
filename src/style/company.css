@@ -1,0 +1,35 @@
+.company {
+  display: flex;
+  overflow: hidden;
+}
+
+.company--header {
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.company--cell {
+  flex: 0 0 10rem;
+  padding: 1em;
+}
+
+.company-focuses {
+  flex: 1 0 10rem;
+  font-size: .85rem;
+}
+
+.company-service {
+  background: blue;
+  border-radius: .25em;
+  color: white;
+  display: inline-block;
+  margin: 0 .25em .25em 0;
+  padding: .1em .25em;
+  transition: background 150ms;
+}
+
+.company-twitter-handle {
+  font-size: .85em;
+}
+
+/*.company-service*/

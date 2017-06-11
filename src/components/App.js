@@ -25,10 +25,12 @@ class App extends React.Component {
         "All": true,
         "Advertising": false,
         "Branding": false,
-        "Digital Product Design": false,
-        "Exhibition Design": false,
+        "Digital Product": false,
+        "Environmental": false,
+        "Exhibition": false,
         "Interactive": false,
         "Mobile Development": false,
+        "Packaging": false,
         "Print": false,
         "Strategy": false,
         "Video": false
@@ -82,20 +84,8 @@ class App extends React.Component {
   }
 
   filterCompanies(filters) {
-    const companies = [...this.state.companies];
+    const { companies } = this.state;
     const { focuses, sizes } = filters;
-
-    this.setState({ focuses, sizes });
-
-    // if (focuses)
-
-    if (focuses["All"] === true) {
-      return this.setState({
-        displayCompanies: allCompanies
-      });
-    };
-
-    debugger;
 
     const filterFocuses = Object
       .keys(focuses)
@@ -105,28 +95,35 @@ class App extends React.Component {
       .keys(sizes)
       .filter(key => sizes[key]);
 
-    const filteredCompanies = companies
-      .filter((company, index) => {
-        return filterFocuses.every((service) => company.services.indexOf(service) > -1);
-      })
-      .filter((company, index) => {
-        return filterSizes.some((size) => company.size === size);
-      });
+    function filterCompaniesByEveryFocus(company, index) {
+      return filterFocuses.every((service) => company.services.indexOf(service) > -1);
+    }
+
+    function filterCompaniesBySize(company, index) {
+      return filterSizes.some((size) => company.size === size);
+    }
+
+    let filteredCompanies = companies
+      .filter(filterCompaniesBySize);
+
+    if (focuses["All"] !== true) {
+      filteredCompanies = filteredCompanies.filter(filterCompaniesByEveryFocus);
+    }
 
     return this.setState({
+      focuses,
       displayCompanies: filteredCompanies
     });
   }
 
   filterExclusive(service) {
-    const focuses = {...this.state.focuses};
-    const sizes = {...this.state.sizes};
+    const { focuses, sizes } = {...this.state};
 
     Object.keys(focuses).map((focus, index) => {
       if (focus === service) {
-        focuses[focus] = true;
+        return focuses[focus] = true;
       } else {
-        focuses[focus] = false;
+        return focuses[focus] = false;
       }
     });
 
@@ -144,12 +141,12 @@ class App extends React.Component {
               sizes={this.state.sizes}
               filterCompanies={this.filterCompanies} />
           </section>
-          <section className="column companies">
+          <section className="companies">
             <div className="list-of-companies">
               <div className="company company--header">
-                <div className="company--cell company-name">Name</div>
-                <div className="company--cell company-focuses">Focuses</div>
-                <div className="company--cell company-size">Size</div>
+                <div className="company--cell company-name"><h2>Name</h2></div>
+                <div className="company--cell company-focuses"><h2>Focuses</h2></div>
+                <div className="company--cell company-size"><h2>Size</h2></div>
               </div>
 
               {
@@ -159,7 +156,8 @@ class App extends React.Component {
                       <Company
                         key={index}
                         details={company}
-                        filterExclusive={this.filterExclusive} />
+                        filterExclusive={this.filterExclusive}
+                        focuses={this.state.focuses} />
                       )
                   })
               }

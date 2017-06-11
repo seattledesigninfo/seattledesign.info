@@ -1,0 +1,49 @@
+* {
+  font-family: 'Roboto Mono', sans-serif;
+}
+
+html,
+body {
+  font-size: 18px;
+  line-height: 1.475;
+  margin: 0;
+}
+
+input {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  text-indent: 2em;
+}
+
+a {
+  background-image: linear-gradient(to bottom, transparent 93%, rgba(150, 150, 150, .9) 93%);
+  background-position: 0 1.25em;
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+}
+
+a:hover {
+  background-image: linear-gradient(to bottom, transparent 93%, rgba(0, 0, 255,.9) 93%);
+  background-position: 0 1.25em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+label {
+  cursor: pointer;
+  transition: color 150ms;
+}

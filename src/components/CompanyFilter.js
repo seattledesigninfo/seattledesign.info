@@ -1,4 +1,5 @@
 import React from 'react';
+import { slugify } from '../helpers';
 
 class CompanyFilter extends React.Component {
   constructor() {
@@ -9,10 +10,13 @@ class CompanyFilter extends React.Component {
         "All": true,
         "Advertising": false,
         "Branding": false,
-        "Digital Product Design": false,
+        "Digital Product": false,
         "Interactive": false,
-        "Exhibition Design": false,
+        "Environmental": false,
+        "Exhibition": false,
         "Mobile Development": false,
+        "Motion": false,
+        "Packaging": false,
         "Print": false,
         "Strategy": false,
         "Video": false
@@ -26,7 +30,8 @@ class CompanyFilter extends React.Component {
       }
     }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleFocusChange = this.handleFocusChange.bind(this);
+    this.handleSizeChange = this.handleSizeChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,7 +44,7 @@ class CompanyFilter extends React.Component {
     this.setState({ focuses });
   }
 
-  handleChange(event) {
+  handleFocusChange(event) {
     const name = event.target.name;
     const changedState = {...this.state};
 
@@ -57,6 +62,24 @@ class CompanyFilter extends React.Component {
       changedState[name][event.target.value] = false;
     }
 
+    if (event.target.form.querySelectorAll("input[type=checkbox]:checked").length === 0) {
+      changedState[name]["All"] = true;
+    }
+
+    this.setState(changedState);
+    this.props.filterCompanies(this.state);
+  }
+
+  handleSizeChange(event) {
+    const name = event.target.name;
+    const changedState = {...this.state};
+
+    if (event.target.checked) {
+      changedState[name][event.target.value] = true;
+    } else {
+      changedState[name][event.target.value] = false;
+    }
+
     this.setState(changedState);
     this.props.filterCompanies(this.state);
   }
@@ -64,7 +87,7 @@ class CompanyFilter extends React.Component {
   render() {
     return(
       <div>
-        <form onChange={this.handleChange}>
+        <form onChange={this.handleFocusChange}>
           <ul>
           {
             Object
@@ -79,26 +102,33 @@ class CompanyFilter extends React.Component {
                       </div>
                     </div>
                     <label htmlFor={`focus-${index}`} className={`checked-${this.state.focuses[focus]}`} key={focus}>
-                      <span className={`company-service ${focus}`}>{focus}</span>
+                      <span className={`company-service ${slugify(focus)}`}>{focus}</span>
                     </label>
                   </li>
                 )
             })
           }
           </ul>
+        </form>
 
+        <form onChange={this.handleSizeChange}>
           <h3>Size</h3>
 
           <ul>
           {
             Object
               .keys(this.state.sizes)
-              .map(size => {
+              .map((size, index) => {
               return (
                 <li key={size}>
-                  <label className={`checked-${this.state.sizes[size]}`} key={size}>
-                    <input name="sizes" type="checkbox" defaultChecked={this.state.sizes[size]} value={size} />
-                    {size}
+                  <div className="checkbox" data-id={this.state.sizes[size]}>
+                    <div className="checkbox--checkbox">
+                      <input name="sizes" type="checkbox" id={`size-${index}`} checked={this.state.sizes[size]} readOnly value={size} />
+                      <label htmlFor={`size-${index}`} key={size}></label>
+                    </div>
+                  </div>
+                  <label htmlFor={`size-${index}`} className={`checked-${this.state.sizes[size]}`} key={size}>
+                    <span className={`company-service ${size}`}>{size}</span>
                   </label>
                 </li>
               )

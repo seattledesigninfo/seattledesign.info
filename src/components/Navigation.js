@@ -3,15 +3,15 @@ import React from 'react';
 class Navigation extends React.Component {
   render() {
     return(
-      <nav>
-        <ul className="navigation">
-          <li className="navigation-item">
+      <nav className="navigation">
+        <ul className="navigation--list">
+          <li className="navigation--brand navigation--item">
             <strong>Seattle Design</strong>
           </li>
-          <li className="navigation-item">
+          <li className="navigation--about navigation--item">
             <a href="#" onClick={this.props.toggleAbout}>What is this?</a>
           </li>
-          <li className="navigation-item">
+          <li className="navigation--add-company navigation--item">
             <a href="mailto:info@mail.seattledesign.info?subject=Add my company to the Seattle Design list">Add your company</a>
           </li>
         </ul>

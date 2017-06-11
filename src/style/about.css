@@ -1,0 +1,29 @@
+.about {
+  background: #000;
+  bottom: 0;
+  color: #fff;
+  font-size: 1.75rem;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 4rem;
+  transition: opacity 150ms;
+  visibility: hidden;
+}
+
+.inverse-anchor {
+  color: #fff;
+}
+
+.about-show-true .about {
+  opacity: 1;
+  visibility: visible;
+}
+
+.about-show-true {
+  height: 100vh;
+  overflow: hidden;
+}

@@ -1,14 +1,22 @@
 import React from 'react';
+import { slugify } from '../helpers';
 
 class Company extends React.Component {
   constructor(props) {
     super(props);
 
     this.filterExclusive = this.filterExclusive.bind(this);
+    this.isSelected = this.isSelected.bind(this);
   }
 
   filterExclusive(service) {
     this.props.filterExclusive(service);
+  }
+
+  isSelected(service) {
+    if (this.props.focuses["All"]) { return true; }
+
+    return `checked-${this.props.focuses[service]}`;
   }
 
   render() {
@@ -16,18 +24,18 @@ class Company extends React.Component {
 
     return(
       <div className="company">
-        <div className="company-name">
+        <div className="company--cell company-name">
           <a href={details.url} target="_blank">{details.name}</a><br/>
-          <span className="twitter-handle">
+          <span className="company-twitter-handle">
             <a href={`http://twitter.com/${details.twitter}`} target="_blank">{details.twitter}</a>
           </span>
         </div>
-        <div className="company-focuses">{
+        <div className="company--cell company-focuses">{
           details.services.map((service, index) => {
-            return(<span key={index} onClick={() => this.filterExclusive(service)} className={`company-service ${service}`}> {service} </span>)
+            return(<span key={index} onClick={() => this.filterExclusive(service)} className={`company-service ${this.isSelected(service)} ${slugify(service)}`}> {service} </span>)
           })
         }</div>
-        <div className="company-size">{details.size}</div>
+        <div className="company--cell company-size">{details.size}</div>
       </div>
     )
   }
