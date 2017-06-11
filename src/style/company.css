@@ -22,14 +22,33 @@
   background: blue;
   border-radius: .25em;
   color: white;
+  cursor: pointer;
   display: inline-block;
   margin: 0 .25em .25em 0;
   padding: .1em .25em;
   transition: background 150ms;
 }
 
+.company-service:hover {
+  background: #6666BB;
+}
+
 .company-twitter-handle {
   font-size: .85em;
 }
 
-/*.company-service*/
+/*
+.all { background: #0000FF; }
+.advertising { background: #1C10E3; }
+.branding { background: #3920C6; }
+.digital-product { background: #5531AA; }
+.interactive { background: #71418E; }
+.environmental { background: #8E5171; }
+.exhibition { background: #AA6155; }
+.mobile-development { background: #C67239; }
+.motion { background: #E3821C; }
+.packaging { background: #FF9200; }
+.print { background: #FF9200; }
+.strategy { background: #FF9200; }
+.video { background: #FF9200; }
+*/

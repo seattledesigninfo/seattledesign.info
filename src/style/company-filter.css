@@ -73,5 +73,5 @@ input[type="checkbox"] {
 
 .checked-false.company-service,
 .checked-false .company-service {
-  background: #ccc;
+  background: #999;
 }
