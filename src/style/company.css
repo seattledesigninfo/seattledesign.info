@@ -18,21 +18,6 @@
   font-size: .85rem;
 }
 
-.company-service {
-  background: blue;
-  border-radius: .25em;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 .25em .25em 0;
-  padding: .1em .25em;
-  transition: background 150ms;
-}
-
-.company-service:hover {
-  background: #6666BB;
-}
-
 .company-twitter-handle {
   font-size: .85em;
 }

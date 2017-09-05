@@ -71,7 +71,28 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
+.company-service {
+  background: blue;
+  border-radius: .25em;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 .25em .25em 0;
+  padding: .1em .25em;
+  transition: background 150ms, color 150ms;
+}
+
 .checked-false.company-service,
 .checked-false .company-service {
-  background: #999;
+  background: #fff;
+  color: #767676;
+}
+
+.company-service:hover {
+  background: #9999ff;
+}
+
+.checked-false.company-service:hover,
+.checked-false .company-service:hover {
+  background: #eee;
 }
