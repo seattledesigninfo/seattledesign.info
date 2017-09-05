@@ -14,6 +14,14 @@ class Company extends React.Component {
     return `checked-${this.props.focuses[service]}`;
   }
 
+  twitterLink(details) {
+    return (
+      <span className="company-twitter-handle">
+        <a href={`http://twitter.com/${details.twitter}`} target="_blank">{details.twitter}</a>
+      </span>
+    )
+  }
+
   render() {
     const details = this.props.details;
 
@@ -21,9 +29,7 @@ class Company extends React.Component {
       <div className="company">
         <div className="company--cell company-name">
           <a href={details.url} target="_blank">{details.name}</a><br/>
-          <span className="company-twitter-handle">
-            <a href={`http://twitter.com/${details.twitter}`} target="_blank">{details.twitter}</a>
-          </span>
+          { (details.twitter.length > 0) ? this.twitterLink(details) : null }
         </div>
         <div className="company--cell company-focuses">{
           details.services.map((service, index) => {
