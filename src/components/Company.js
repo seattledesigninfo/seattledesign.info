@@ -17,7 +17,7 @@ class Company extends React.Component {
   twitterLink(details) {
     return (
       <span className="company-twitter-handle">
-        <a href={`http://twitter.com/${details.twitter}`} target="_blank">{details.twitter}</a>
+        <a href={`http://twitter.com/${details.twitter}`} rel="noopener" target="_blank">{details.twitter}</a>
       </span>
     )
   }
@@ -28,7 +28,7 @@ class Company extends React.Component {
     return(
       <div className="company">
         <div className="company--cell company-name">
-          <a href={details.url} target="_blank">{details.name}</a><br/>
+          <a href={details.url} target="_blank" rel="noopener">{details.name}</a><br/>
           { (details.twitter.length > 0) ? this.twitterLink(details) : null }
         </div>
         <div className="company--cell company-focuses">{
