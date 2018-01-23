@@ -1,12 +1,12 @@
-import React from 'react';
-import '../styles.css';
+import React from "react";
+import "../styles.css";
 
-import { allCompanies, load } from '../spreadsheet';
+import { load } from "../spreadsheet";
 
-import CompanyFilter from './CompanyFilter';
-import Company from './Company';
-import About from './About';
-import Navigation from './Navigation';
+import CompanyFilter from "./CompanyFilter";
+import Company from "./Company";
+import About from "./About";
+import Navigation from "./Navigation";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,18 +21,19 @@ class App extends React.Component {
       displayCompanies: [],
       showAbout: false,
       focuses: {
-        "All": true,
-        "Advertising": false,
-        "Branding": false,
+        All: true,
+        Advertising: false,
+        Branding: false,
         "Digital Product": false,
-        "Environmental": false,
-        "Exhibition": false,
-        "Interactive": false,
+        Environmental: false,
+        Exhibition: false,
+        Interactive: false,
         "Mobile Development": false,
-        "Packaging": false,
-        "Print": false,
-        "Strategy": false,
-        "Video": false
+        Packaging: false,
+        Print: false,
+        Strategy: false,
+        Video: false,
+        UX: false
       },
       sizes: {
         "1-10": true, // Micro
@@ -41,17 +42,17 @@ class App extends React.Component {
         "201-500": true, // Large
         "501+": true // Massive
       }
-    }
+    };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     load(this.onLoad.bind(this));
 
-    document.addEventListener('keydown', this.handleKeyPress);
+    document.addEventListener("keydown", this.handleKeyPress);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyPress);
+  componentDidUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
   }
 
   onLoad(data, error) {
@@ -79,31 +80,23 @@ class App extends React.Component {
 
     this.setState({
       showAbout: showAbout
-    })
+    });
   }
 
   filterCompanies(filters) {
     const { companies } = this.state;
     const { focuses, sizes } = filters;
 
-    const filterFocuses = Object
-      .keys(focuses)
-      .filter(key => focuses[key]);
+    const filterFocuses = Object.keys(focuses).filter(key => focuses[key]);
+    const filterSizes = Object.keys(sizes).filter(key => sizes[key]);
 
-    const filterSizes = Object
-      .keys(sizes)
-      .filter(key => sizes[key]);
+    const filterCompaniesByEveryFocus = (company, index) =>
+      filterFocuses.every(service => company.services.indexOf(service) > -1);
 
-    function filterCompaniesByEveryFocus(company, index) {
-      return filterFocuses.every((service) => company.services.indexOf(service) > -1);
-    }
+    const filterCompaniesBySize = (company, index) =>
+      filterSizes.some(size => company.size === size);
 
-    function filterCompaniesBySize(company, index) {
-      return filterSizes.some((size) => company.size === size);
-    }
-
-    let filteredCompanies = companies
-      .filter(filterCompaniesBySize);
+    let filteredCompanies = companies.filter(filterCompaniesBySize);
 
     if (focuses["All"] !== true) {
       filteredCompanies = filteredCompanies.filter(filterCompaniesByEveryFocus);
@@ -124,33 +117,38 @@ class App extends React.Component {
             <CompanyFilter
               focuses={this.state.focuses}
               sizes={this.state.sizes}
-              filterCompanies={this.filterCompanies} />
+              filterCompanies={this.filterCompanies}
+            />
           </section>
           <section className="companies">
             <div className="list-of-companies">
               <div className="company company--header">
-                <div className="company--cell company-name"><h2>Name</h2></div>
-                <div className="company--cell company-focuses"><h2>Focuses</h2></div>
-                <div className="company--cell company-size"><h2>Size</h2></div>
+                <div className="company--cell company-name">
+                  <h2>Name</h2>
+                </div>
+                <div className="company--cell company-focuses">
+                  <h2>Focuses</h2>
+                </div>
+                <div className="company--cell company-size">
+                  <h2>Size</h2>
+                </div>
               </div>
 
-              {
-                this.state.displayCompanies
-                  .map((company, index) => {
-                    return(
-                      <Company
-                        key={index}
-                        details={company}
-                        focuses={this.state.focuses} />
-                      )
-                  })
-              }
+              {this.state.displayCompanies.map((company, index) => {
+                return (
+                  <Company
+                    key={index}
+                    details={company}
+                    focuses={this.state.focuses}
+                  />
+                );
+              })}
             </div>
           </section>
         </div>
         <About toggleAbout={this.toggleAbout} />
       </div>
-    )
+    );
   }
 }
 
