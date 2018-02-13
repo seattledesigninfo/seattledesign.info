@@ -1,25 +1,43 @@
+@import "./variables.css";
+
 .company {
+  padding: 0.75rem;
+  border-radius: 3px;
+  border: solid 1px #eee;
+}
+
+.company__header {
   display: flex;
-  overflow: hidden;
+  background: #eee;
+  padding: 0.75rem;
+  margin: -0.75rem -0.75rem 0.75rem;
+  align-items: center;
 }
 
-.company--header {
-  font-size: .85rem;
-  font-weight: 700;
+.company__name {
+  flex: 1 0 0;
 }
 
-.company--cell {
-  flex: 0 0 10rem;
-  padding: 1em;
+.company__size {
+  padding: 0.25em;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  background: white;
 }
 
-.company-focuses {
-  flex: 1 0 10rem;
-  font-size: .85rem;
+.company__meta {
+  font-size: 0.75rem;
 }
 
-.company-twitter-handle {
-  font-size: .85em;
+.company__services {
+  flex: 1 0 0;
+}
+
+.company__service + .company__service:before {
+  content: ", ";
+}
+
+.company__social {
 }
 
 /*

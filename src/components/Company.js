@@ -1,54 +1,44 @@
 import React from "react";
-import { slugify } from "../helpers";
 
-export default function Company({ details, focuses }) {
-  const isSelected = service => {
-    if (focuses["All"]) {
-      return true;
+export default function Company({ company }) {
+  const twitterLink = company => {
+    if (!company.twitter) {
+      return;
     }
 
-    return `checked-${focuses[service]}`;
-  };
-
-  const twitterLink = details => {
     return (
-      <span className="company-twitter-handle">
+      <span className="company__social--twitter">
         <a
-          href={`http://twitter.com/${details.twitter}`}
+          href={`http://twitter.com/${company.twitter}`}
           rel="noopener"
           target="_blank"
         >
-          {details.twitter}
+          {company.twitter}
         </a>
       </span>
     );
   };
 
   return (
-    <div className="company">
-      <div className="company--cell company-name">
-        <a href={details.url} target="_blank" rel="noopener">
-          {details.name}
-        </a>
-        <br />
-        {details.twitter.length > 0 ? twitterLink(details) : null}
+    <article className="company">
+      <header className="company__header">
+        <h1 className="company__name">
+          <a href={company.url} target="_blank" rel="noopener">
+            {company.name}
+          </a>
+        </h1>
+        <div className="company__size">{company.size}</div>
+      </header>
+
+      <div className="company__meta">
+        <div className="company__services">
+          {company.services.map(service => (
+            <span className="company__service">{service}</span>
+          ))}
+        </div>
       </div>
-      <div className="company--cell company-focuses">
-        {details.services.map((service, index) => {
-          return (
-            <span
-              key={index}
-              className={`company-service ${isSelected(service)} ${slugify(
-                service
-              )}`}
-            >
-              {" "}
-              {service}{" "}
-            </span>
-          );
-        })}
-      </div>
-      <div className="company--cell company-size">{details.size}</div>
-    </div>
+
+      <div className="company__social">{twitterLink(company)}</div>
+    </article>
   );
 }

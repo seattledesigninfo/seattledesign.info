@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { slugify } from "../helpers";
 
 class CompanyFilter extends React.Component {
@@ -90,7 +90,7 @@ class CompanyFilter extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <form onChange={this.handleFocusChange}>
           <ul>
             {Object.keys(this.state.focuses).map((focus, index) => {
@@ -156,7 +156,7 @@ class CompanyFilter extends React.Component {
             })}
           </ul>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -121,29 +121,15 @@ class App extends React.Component {
             />
           </section>
           <section className="companies">
-            <div className="list-of-companies">
-              <div className="company company--header">
-                <div className="company--cell company-name">
-                  <h2>Name</h2>
-                </div>
-                <div className="company--cell company-focuses">
-                  <h2>Focuses</h2>
-                </div>
-                <div className="company--cell company-size">
-                  <h2>Size</h2>
-                </div>
-              </div>
-
-              {this.state.displayCompanies.map((company, index) => {
-                return (
-                  <Company
-                    key={index}
-                    details={company}
-                    focuses={this.state.focuses}
-                  />
-                );
-              })}
-            </div>
+            {this.state.displayCompanies.map((company, index) => {
+              return (
+                <Company
+                  key={index}
+                  company={company}
+                  focuses={this.state.focuses}
+                />
+              );
+            })}
           </section>
         </div>
         <About toggleAbout={this.toggleAbout} />
