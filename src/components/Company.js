@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function Company({ company }) {
+export default function Company({ company, focuses }) {
+  const selectedFocus = focus => {
+    if (focuses[focus]) {
+      return <span className="company__services--selected">{focus}</span>;
+    }
+
+    return focus;
+  };
+
   const twitterLink = company => {
     if (!company.twitter) {
       return;
@@ -33,7 +41,7 @@ export default function Company({ company }) {
       <div className="company__meta">
         <div className="company__services">
           {company.services.map(service => (
-            <span className="company__service">{service}</span>
+            <span className="company__service">{selectedFocus(service)}</span>
           ))}
         </div>
       </div>
