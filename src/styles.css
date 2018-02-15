@@ -11,13 +11,13 @@
 }
 
 .company-filter {
-  flex: 0 0 300px;
+  flex: 0 1 300px;
 }
 
 .companies {
   flex: 1 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: max-content;
   grid-gap: 1em;
 }
