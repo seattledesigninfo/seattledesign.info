@@ -1,12 +1,13 @@
-* {
-  font-family: 'Roboto Mono', sans-serif;
+html {
+  font-size: 14px;
 }
 
-html,
 body {
-  font-size: 18px;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 1rem;
   line-height: 1.475;
   margin: 0;
+  padding: 1rem 1rem 0;
 }
 
 input {
@@ -18,20 +19,26 @@ p {
 }
 
 p + p {
-  text-indent: 2em;
+  text-indent: 2rem;
 }
 
 a {
-  background-image: linear-gradient(to bottom, transparent 93%, rgba(150, 150, 150, .9) 93%);
-  background-position: 0 1.25em;
   color: inherit;
   position: relative;
   text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: center 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
 }
 
 a:hover {
-  background-image: linear-gradient(to bottom, transparent 93%, rgba(0, 0, 255,.9) 93%);
-  background-position: 0 1.25em;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 93%,
+    currentColor 93%
+  );
+  background-position: 0 95%;
 }
 
 ul {
@@ -46,4 +53,57 @@ li {
 label {
   cursor: pointer;
   transition: color 150ms;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+  margin-bottom: .25rem;
+}
+
+h1 {
+  font-family: Kavivanar;
+}
+
+h6 {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-weight: normal;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+.seattle-design {
+  font-family: Kavivanar;
+}
+
+button {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+/* a[target="_blank"]:after {
+  content: " external";
+  background: red;
+  font-size: 0.75rem;
+} */
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding: 1rem 2rem 0;
+  }
 }

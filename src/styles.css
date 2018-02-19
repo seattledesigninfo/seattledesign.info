@@ -1,14 +1,36 @@
-@import './style/base.css';
-@import './style/company-filter.css';
-@import './style/company.css';
-@import './style/about.css';
-@import './style/navigation.css';
+@import "./style/base.css";
+@import "./style/company-filter.css";
+@import "./style/company.css";
+@import "./style/about.css";
+@import "./style/navigation.css";
 
 .container {
-  margin: 1em auto;
-  max-width: 90vw;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  transition: filter 1s;
+}
+
+.about-show-true .container {
+  filter: blur(3px);
+}
+
+.company-filter {
+  flex: 0 1 300px;
 }
 
 .companies {
-  margin-left: 300px;
+  flex: 1 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(191px, 1fr));
+  grid-template-rows: max-content;
+  grid-gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .companies {
+    grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
+    grid-gap: 2rem;
+  }
 }

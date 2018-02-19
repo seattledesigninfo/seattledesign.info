@@ -1,25 +1,53 @@
 .company {
-  display: flex;
+  border-radius: 4px;
   overflow: hidden;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  border: solid 3px #eee;
 }
 
-.company--header {
-  font-size: .85rem;
+.company__header {
+  align-items: center;
+  display: flex;
+  margin: -0.75rem -0.75rem 0.75rem;
+  padding: 0.75rem;
+}
+
+.company__name {
+  flex: 1 0 0;
+  font-family: Kavivanar;
+  font-size: 1.8rem;
+}
+
+.company__size {
+  background: rgba(200,200,200,.5);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  padding: 0.25em;
+}
+
+.company__meta {
+  font-size: 0.75rem;
+  flex-grow: 1;
+}
+
+.company__services {
+  flex: 1 0 0;
+}
+
+.company__service + .company__service:before {
+  content: ", ";
+}
+
+.company__services--selected {
   font-weight: 700;
+  color: #3920C6;
 }
 
-.company--cell {
-  flex: 0 0 10rem;
-  padding: 1em;
-}
-
-.company-focuses {
-  flex: 1 0 10rem;
-  font-size: .85rem;
-}
-
-.company-twitter-handle {
-  font-size: .85em;
+.company__social {
+  font-size: 0.75rem;
+  margin-top: 1rem;
 }
 
 /*

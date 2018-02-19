@@ -90,73 +90,56 @@ class CompanyFilter extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onChange={this.handleFocusChange}>
-          <ul>
-            {Object.keys(this.state.focuses).map((focus, index) => {
-              return (
-                <li key={focus}>
-                  <div className="checkbox" data-id={this.state.focuses[focus]}>
-                    <div className="checkbox--checkbox">
-                      <input
-                        name="focuses"
-                        type="checkbox"
-                        id={`focus-${index}`}
-                        checked={this.state.focuses[focus]}
-                        readOnly
-                        value={focus}
-                      />
-                      <label htmlFor={`focus-${index}`} key={focus} />
-                    </div>
-                  </div>
-                  <label
-                    htmlFor={`focus-${index}`}
-                    className={`checked-${this.state.focuses[focus]}`}
-                    key={focus}
-                  >
-                    <span className={`company-service ${slugify(focus)}`}>
-                      {focus}
-                    </span>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
+      <section className="companies-filter">
+        <form className="companies-filter__form" onChange={this.handleFocusChange}>
+          <h6>Services</h6>
+          {Object.keys(this.state.focuses).map((focus, index) => {
+            return (
+              <label
+                htmlFor={`focus-${index}`}
+                className={`checked-${this.state.focuses[focus]}`}
+                key={focus}
+              >
+                <input
+                  name="focuses"
+                  type="checkbox"
+                  id={`focus-${index}`}
+                  checked={this.state.focuses[focus]}
+                  readOnly
+                  value={focus}
+                />
+                <span tabIndex="0" className={`company-service ${slugify(focus)}`}>
+                  {focus}
+                </span>
+              </label>
+            );
+          })}
         </form>
 
-        <form onChange={this.handleSizeChange}>
-          <h3>Size</h3>
+        <form className="companies-filter__form" onChange={this.handleSizeChange}>
+          <h6>Size</h6>
 
-          <ul>
-            {Object.keys(this.state.sizes).map((size, index) => {
-              return (
-                <li key={size}>
-                  <div className="checkbox" data-id={this.state.sizes[size]}>
-                    <div className="checkbox--checkbox">
-                      <input
-                        name="sizes"
-                        type="checkbox"
-                        id={`size-${index}`}
-                        checked={this.state.sizes[size]}
-                        readOnly
-                        value={size}
-                      />
-                      <label htmlFor={`size-${index}`} key={size} />
-                    </div>
-                  </div>
-                  <label
-                    htmlFor={`size-${index}`}
-                    className={`checked-${this.state.sizes[size]}`}
-                    key={size}
-                  >
-                    <span className={`company-service ${size}`}>{size}</span>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
+          {Object.keys(this.state.sizes).map((size, index) => {
+            return (
+                <label
+                  htmlFor={`size-${index}`}
+                  className={`checked-${this.state.sizes[size]}`}
+                  key={size}
+                >
+                <input
+                  name="sizes"
+                  type="checkbox"
+                  id={`size-${index}`}
+                  checked={this.state.sizes[size]}
+                  readOnly
+                  value={size}
+                />
+                  <span tabIndex="0" className={`company-service ${size}`}>{size}</span>
+                </label>
+            );
+          })}
         </form>
-      </div>
+      </section>
     );
   }
 }
