@@ -2,11 +2,13 @@
   border-radius: 4px;
   overflow: hidden;
   padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  border: solid 3px #eee;
 }
 
 .company__header {
   align-items: center;
-  background: #eee;
   display: flex;
   margin: -0.75rem -0.75rem 0.75rem;
   padding: 0.75rem;
@@ -14,10 +16,12 @@
 
 .company__name {
   flex: 1 0 0;
+  font-family: Kavivanar;
+  font-size: 1.8rem;
 }
 
 .company__size {
-  background: white;
+  background: rgba(200,200,200,.5);
   border-radius: 8px;
   font-size: 0.75rem;
   padding: 0.25em;
@@ -25,6 +29,7 @@
 
 .company__meta {
   font-size: 0.75rem;
+  flex-grow: 1;
 }
 
 .company__services {
@@ -37,7 +42,7 @@
 
 .company__services--selected {
   font-weight: 700;
-  color: #0000ff;
+  color: #3920C6;
 }
 
 .company__social {

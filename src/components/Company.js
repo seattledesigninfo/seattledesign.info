@@ -40,8 +40,9 @@ export default function Company({ company, focuses }) {
 
       <div className="company__meta">
         <div className="company__services">
+          <h6>Services</h6>
           {company.services.map(service => (
-            <span className="company__service">{selectedFocus(service)}</span>
+            <span key={service} className="company__service">{selectedFocus(service)}</span>
           ))}
         </div>
       </div>

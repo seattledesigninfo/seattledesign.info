@@ -2,34 +2,20 @@ import React from "react";
 
 export default function About({ toggleAbout }) {
   return (
-    <div className="about">
-      <div className="close-about">
-        <button onClick={toggleAbout}>&times;</button>
-      </div>
+    <section id="about" className="about">
       <p>
-        <strong>Seattle Design</strong> is the result of months of research to
-        uncover the thriving Seattle graphic and interactive design community.
-        This is a work in progress, but my hope is that it helps students, city
-        transplants, hiring managers, and those looking for a job.
+        <strong className="seattle-design">Seattle Design</strong> is a living resource
+        for the thriving Seattle graphic and interactive design community. Our hope is that
+        students, city transplants, hiring managers, job seekers, and anyone else gets a
+        good overview of the companies working in Seattle.
       </p>
       <p>
-        <strong>Seattle Design</strong> grew out of a frustration while
-        researching the Seattle Design scene. Information online was almost
-        always out-of-date or undiscoverable. Companies I knew existed were
-        nearly impossible to find through LinkedIn and Google queries. I had to
-        believe other people had a similar kind of frustration.
+        This is a labor of love, so please notify us with corrections, additions, or any
+        features you may want to see by emailing{" "}
+        <a href="mailto:info@mail.seattledesign.info">
+          info@mail.seattledesign.info
+        </a>.
       </p>
-      <p>
-        This is a labor of love, so please help me out to correct any
-        information by{" "}
-        <a
-          className="inverse-anchor"
-          href="mailto:info@mail.seattledesign.info"
-        >
-          notifying me
-        </a>{" "}
-        of changes that should be made.
-      </p>
-    </div>
+    </section>
   );
 }
