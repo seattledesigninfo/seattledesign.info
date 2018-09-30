@@ -50,6 +50,11 @@
   margin-top: 1rem;
 }
 
+.company__social a {
+  background-image: none;
+  text-decoration: underline;
+}
+
 /*
 .all { background: #0000FF; }
 .advertising { background: #1C10E3; }

@@ -1,71 +1,30 @@
 .checkbox {
   display: inline-block;
+  margin: 0 0.25rem 0.25rem 0;
 }
 
-.checkbox--checkbox {
-  background: #ccc;
-  border-radius: 2px;
-  display: inline-block;
-  height: 18px;
-  margin: 0 7px 0 0;
-  position: relative;
-  width: 18px;
-}
-
-input[type="checkbox"] {
-  visibility: hidden;
+.checkbox input[type="checkbox"] {
   display: none;
 }
 
-.checkbox--checkbox label {
-  background: white;
-  bottom: 2px;
-  left: 2px;
-  position: absolute;
-  right: 2px;
-  top: 2px;
-}
-
-.checkbox--checkbox label:after {
-  border: solid 2px black;
-  border-right: 0;
-  border-top: 0;
-  bottom: 6px;
-  content: "";
-  left: 3px;
-  opacity: 0;
-  position: absolute;
-  right: 3px;
-  top: 4px;
-  transform: rotate(-45deg);
-  transition: opacity 150ms;
-}
-
-.checkbox--checkbox input[type="checkbox"]:checked + label:after {
-  opacity: 1;
-}
-
-.company-service {
-  user-select: none;
-  background: #325af5;
+.checkbox label {
   border-radius: 0.25rem;
-  color: white;
   cursor: pointer;
   display: inline-block;
-  margin: 0 0.25rem 0.25rem 0;
+  margin: 0;
   padding: 0.1rem 0.25rem;
   transition: background 150ms, color 150ms;
 }
 
-.checked-false.company-service,
-.checked-false .company-service {
-  background: #fff;
-  color: #767676;
+.checked--true {
+  background: var(--brand-color);
+  color: white;
+  user-select: none;
 }
 
-.checked-false.company-service:hover,
-.checked-false .company-service:hover {
+.checked--false {
   background: #eee;
+  color: #767676;
 }
 
 .companies-filter {

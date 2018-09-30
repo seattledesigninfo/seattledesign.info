@@ -1,3 +1,10 @@
+:root {
+  --brand-color: hsl(210, 100%, 40%);
+  --link-color: #000;
+  --link-color-hover: hsl(150, 100%, 30%);
+  --focus-color: hsl(40, 100%, 40%);
+}
+
 html {
   font-size: 14px;
 }
@@ -23,22 +30,28 @@ p + p {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
   position: relative;
   text-decoration: none;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: center 100%;
+  background-image: linear-gradient(var(--link-color), var(--link-color));
+  background-position: center 85%;
   background-repeat: no-repeat;
   background-size: 100% 1px;
+  transition: background-position 60ms ease-in-out,
+    background-image 60ms ease-in-out,
+    color 60ms ease-in-out;
 }
 
+a:focus,
 a:hover {
-  background-image: linear-gradient(
-    to bottom,
-    transparent 93%,
-    currentColor 93%
-  );
-  background-position: 0 95%;
+  color: var(--link-color-hover);
+  background-image: linear-gradient(var(--link-color-hover), var(--link-color-hover));
+  background-position: 0 90%;
+}
+
+:focus {
+  outline: dashed 2px var(--focus-color);
+  outline-offset: 2px;
 }
 
 ul {
