@@ -15,15 +15,14 @@ export default function Company({ company, focuses }) {
     }
 
     return (
-      <span className="company__social--twitter">
-        <a
-          href={`http://twitter.com/${company.twitter}`}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {company.twitter}
-        </a>
-      </span>
+      <a
+        className="company__social--twitter"
+        href={`http://twitter.com/${company.twitter}`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {company.twitter}
+      </a>
     );
   };
 

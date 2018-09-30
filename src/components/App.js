@@ -60,10 +60,10 @@ class App extends React.Component {
 
   filterCompanies(filters) {
     const { companies } = this.state;
-    const { focuses, sizes } = filters;
+    const { focus, size } = filters;
 
-    const filterFocuses = Object.keys(focuses).filter(key => focuses[key]);
-    const filterSizes = Object.keys(sizes).filter(key => sizes[key]);
+    const filterFocuses = Object.keys(focus).filter(key => focus[key]);
+    const filterSizes = Object.keys(size).filter(key => size[key]);
 
     const filterCompaniesByEveryFocus = company =>
       filterFocuses.every(service => company.services.indexOf(service) > -1);
@@ -73,12 +73,12 @@ class App extends React.Component {
 
     let filteredCompanies = companies.filter(filterCompaniesBySize);
 
-    if (focuses["All"] !== true) {
+    if (focus["All"] !== true) {
       filteredCompanies = filteredCompanies.filter(filterCompaniesByEveryFocus);
     }
 
     return this.setState({
-      focuses,
+      focus,
       displayCompanies: filteredCompanies
     });
   }

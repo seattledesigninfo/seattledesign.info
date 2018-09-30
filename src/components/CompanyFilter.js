@@ -1,12 +1,12 @@
 import React from "react";
-import { slugify } from "../helpers";
+import Checkbox from "./Checkbox";
 
 class CompanyFilter extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      focuses: {
+      focus: {
         All: true,
         Advertising: false,
         Branding: false,
@@ -21,7 +21,7 @@ class CompanyFilter extends React.Component {
         Strategy: false,
         Video: false
       },
-      sizes: {
+      size: {
         "1-10": true, // Micro
         "11-50": true, // Small
         "51-200": true, // Medium
@@ -92,63 +92,33 @@ class CompanyFilter extends React.Component {
     return (
       <section className="companies-filter">
         <form
-          className="companies-filter__form"
+          className="companies-filter__form companies-filter--focus"
           onChange={this.handleFocusChange}
         >
           <h6>Services</h6>
-          {Object.keys(this.state.focuses).map((focus, index) => {
-            return (
-              <label
-                htmlFor={`focus-${index}`}
-                className={`checked-${this.state.focuses[focus]}`}
-                key={focus}
-              >
-                <input
-                  name="focuses"
-                  type="checkbox"
-                  id={`focus-${index}`}
-                  checked={this.state.focuses[focus]}
-                  readOnly
-                  value={focus}
-                />
-                <span
-                  tabIndex="0"
-                  className={`company-service ${slugify(focus)}`}
-                >
-                  {focus}
-                </span>
-              </label>
-            );
-          })}
+          {Object.keys(this.state.focus).map((focus, index) => (
+            <Checkbox
+              index={index}
+              focuses={this.state.focus}
+              focus={focus}
+              type="focus"
+            />
+          ))}
         </form>
 
         <form
-          className="companies-filter__form"
+          className="companies-filter__form companies-filter--size"
           onChange={this.handleSizeChange}
         >
           <h6>Size</h6>
-
-          {Object.keys(this.state.sizes).map((size, index) => {
-            return (
-              <label
-                htmlFor={`size-${index}`}
-                className={`checked-${this.state.sizes[size]}`}
-                key={size}
-              >
-                <input
-                  name="sizes"
-                  type="checkbox"
-                  id={`size-${index}`}
-                  checked={this.state.sizes[size]}
-                  readOnly
-                  value={size}
-                />
-                <span tabIndex="0" className={`company-service ${size}`}>
-                  {size}
-                </span>
-              </label>
-            );
-          })}
+          {Object.keys(this.state.size).map((size, index) => (
+            <Checkbox
+              index={index}
+              focuses={this.state.size}
+              focus={size}
+              type="size"
+            />
+          ))}
         </form>
       </section>
     );
