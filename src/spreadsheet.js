@@ -4,13 +4,13 @@ let allCompanies;
 
 export function load(callback) {
   fetch(`${config.spreadsheetUrl}?key=${config.spreadsheetApiKey}`)
-    .then(function(response) {
+    .then((response) => {
       return response.json();
     })
-    .then(function(response) {
+    .then((response) => {
       const data = response.values || [];
 
-      allCompanies = data.map((company, i) => {
+      allCompanies = data.map((company) => {
         let name = company[0],
           url = company[1],
           size = company[2],

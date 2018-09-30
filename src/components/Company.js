@@ -18,7 +18,7 @@ export default function Company({ company, focuses }) {
       <span className="company__social--twitter">
         <a
           href={`http://twitter.com/${company.twitter}`}
-          rel="noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           {company.twitter}
@@ -31,7 +31,7 @@ export default function Company({ company, focuses }) {
     <article className="company">
       <header className="company__header">
         <h1 className="company__name">
-          <a href={company.url} target="_blank" rel="noopener">
+          <a href={company.url} target="_blank" rel="noopener noreferrer">
             {company.name}
           </a>
         </h1>
@@ -42,7 +42,9 @@ export default function Company({ company, focuses }) {
         <div className="company__services">
           <h6>Services</h6>
           {company.services.map(service => (
-            <span key={service} className="company__service">{selectedFocus(service)}</span>
+            <span key={service} className="company__service">
+              {selectedFocus(service)}
+            </span>
           ))}
         </div>
       </div>

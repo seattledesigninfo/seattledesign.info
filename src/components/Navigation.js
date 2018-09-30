@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navigation({ toggleAbout }) {
+export default function Navigation() {
   return (
     <header>
       <h1 className="logo">

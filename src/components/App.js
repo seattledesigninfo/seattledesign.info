@@ -65,10 +65,10 @@ class App extends React.Component {
     const filterFocuses = Object.keys(focuses).filter(key => focuses[key]);
     const filterSizes = Object.keys(sizes).filter(key => sizes[key]);
 
-    const filterCompaniesByEveryFocus = (company, index) =>
+    const filterCompaniesByEveryFocus = company =>
       filterFocuses.every(service => company.services.indexOf(service) > -1);
 
-    const filterCompaniesBySize = (company, index) =>
+    const filterCompaniesBySize = company =>
       filterSizes.some(size => company.size === size);
 
     let filteredCompanies = companies.filter(filterCompaniesBySize);

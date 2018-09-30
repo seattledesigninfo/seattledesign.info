@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function About({ toggleAbout }) {
+export default function About() {
   return (
     <section id="about" className="about">
       <p>

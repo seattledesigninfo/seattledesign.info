@@ -91,7 +91,10 @@ class CompanyFilter extends React.Component {
   render() {
     return (
       <section className="companies-filter">
-        <form className="companies-filter__form" onChange={this.handleFocusChange}>
+        <form
+          className="companies-filter__form"
+          onChange={this.handleFocusChange}
+        >
           <h6>Services</h6>
           {Object.keys(this.state.focuses).map((focus, index) => {
             return (
@@ -108,7 +111,10 @@ class CompanyFilter extends React.Component {
                   readOnly
                   value={focus}
                 />
-                <span tabIndex="0" className={`company-service ${slugify(focus)}`}>
+                <span
+                  tabIndex="0"
+                  className={`company-service ${slugify(focus)}`}
+                >
                   {focus}
                 </span>
               </label>
@@ -116,16 +122,19 @@ class CompanyFilter extends React.Component {
           })}
         </form>
 
-        <form className="companies-filter__form" onChange={this.handleSizeChange}>
+        <form
+          className="companies-filter__form"
+          onChange={this.handleSizeChange}
+        >
           <h6>Size</h6>
 
           {Object.keys(this.state.sizes).map((size, index) => {
             return (
-                <label
-                  htmlFor={`size-${index}`}
-                  className={`checked-${this.state.sizes[size]}`}
-                  key={size}
-                >
+              <label
+                htmlFor={`size-${index}`}
+                className={`checked-${this.state.sizes[size]}`}
+                key={size}
+              >
                 <input
                   name="sizes"
                   type="checkbox"
@@ -134,8 +143,10 @@ class CompanyFilter extends React.Component {
                   readOnly
                   value={size}
                 />
-                  <span tabIndex="0" className={`company-service ${size}`}>{size}</span>
-                </label>
+                <span tabIndex="0" className={`company-service ${size}`}>
+                  {size}
+                </span>
+              </label>
             );
           })}
         </form>
