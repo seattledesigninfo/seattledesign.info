@@ -1,16 +1,15 @@
-import config from "./config";
-
-let allCompanies;
+let allCompanies = [];
 
 export function load(callback) {
-  fetch(`${config.spreadsheetUrl}?key=${config.spreadsheetApiKey}`)
-    .then((response) => {
+  const url = new URL(`${process.env.REACT_APP_SPREADSHEET_URL}?key=${process.env.REACT_APP_SPREADSHEET_API_KEY}`);
+  fetch(url)
+    .then(response => {
       return response.json();
     })
-    .then((response) => {
+    .then(response => {
       const data = response.values || [];
 
-      allCompanies = data.map((company) => {
+      allCompanies = data.map(company => {
         let name = company[0],
           url = company[1],
           size = company[2],
