@@ -18,7 +18,8 @@
   "plugins": ["react"],
   "globals": {
     "React": true,
-    "google": true
+    "google": true,
+    "ga": true
   },
   "rules": {
     "array-bracket-spacing": ["error", "never"],

@@ -1,6 +1,8 @@
 import React from "react";
 import Checkbox from "./Checkbox";
 
+const { ga } = window;
+
 class CompanyFilter extends React.Component {
   constructor() {
     super();
@@ -48,6 +50,13 @@ class CompanyFilter extends React.Component {
     const name = event.target.name;
     const changedState = { ...this.state };
 
+    ga("send", {
+      hitType: "event",
+      eventCategory: "Filter Companies",
+      eventAction: "Focuses",
+      eventLabel: event.target.name
+    });
+
     if (event.target.checked) {
       changedState[name][event.target.value] = true;
 
@@ -77,6 +86,13 @@ class CompanyFilter extends React.Component {
   handleSizeChange(event) {
     const name = event.target.name;
     const changedState = { ...this.state };
+
+    ga("send", {
+      hitType: "event",
+      eventCategory: "Filter Companies",
+      eventAction: "Sizes",
+      eventLabel: event.target.name
+    });
 
     if (event.target.checked) {
       changedState[name][event.target.value] = true;
